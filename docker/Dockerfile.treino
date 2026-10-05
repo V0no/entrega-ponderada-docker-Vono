@@ -1,0 +1,19 @@
+FROM python:3.11-slim AS builder
+
+WORKDIR /build
+COPY docker/requirements-treino.txt ./
+RUN python -m venv /opt/venv \
+    && /opt/venv/bin/python -m pip install --no-cache-dir -r requirements-treino.txt
+
+FROM python:3.11-slim AS runtime
+
+ENV PATH=/opt/venv/bin:$PATH \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    MPLCONFIGDIR=/tmp/matplotlib
+
+WORKDIR /app
+COPY --from=builder /opt/venv /opt/venv
+COPY src/treinar_modelo.py ./
+
+CMD ["python", "treinar_modelo.py", "--dados", "/app/dados/usd_brl_historico.csv", "--saida", "/app/artifacts"]

@@ -1,0 +1,8 @@
+.git
+artifacts
+dados
+DEVLOG.md
+README*.md
+__pycache__
+*.pyc
+docs

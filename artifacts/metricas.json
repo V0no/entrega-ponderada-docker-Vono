@@ -1,0 +1,28 @@
+{
+  "tipo_de_dados": "historicos",
+  "fonte_dados": "Banco Central do Brasil, SGS 1, dolar comercial venda",
+  "fonte_url": "https://dadosabertos.bcb.gov.br/dataset/1-taxa-de-cambio---livre---dolar-americano-venda---diario",
+  "csv_sha256": "61d7477f411933a48404087af0a10b15b718fd80f6b18454c833a0d0e47d34df",
+  "biblioteca_prophet": "1.5.0",
+  "total_linhas": 941,
+  "linhas_treino": 753,
+  "linhas_teste": 188,
+  "periodo_treino": [
+    "2023-01-02",
+    "2025-12-30"
+  ],
+  "periodo_teste": [
+    "2025-12-31",
+    "2026-09-30"
+  ],
+  "avaliacao": "previsao de todo o bloco de teste a partir do fim do treino",
+  "prophet": {
+    "mae": 0.165211,
+    "rmse": 0.217971
+  },
+  "referencia_ultima_cotacao_do_treino": {
+    "mae": 0.352412,
+    "rmse": 0.37036
+  },
+  "unidade": "BRL por USD"
+}
